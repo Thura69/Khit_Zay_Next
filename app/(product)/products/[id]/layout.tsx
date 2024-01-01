@@ -6,7 +6,7 @@ function Layout({children}:{children:ReactNode}) {
     <>
      <SiteBannerProductDetail />
 
-    <div className='flex w-full p-[10px] flex-col flex-grow  '>
+    <div className='flex w-full p-[15px] flex-col flex-grow  '>
       
       {children}
     

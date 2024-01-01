@@ -32,7 +32,7 @@ export const SiteBanner = () => {
 
 export const SiteBannerProductDetail = () => {
     return (
-      <div className={cn('bg-[#dddddd55] flex items-center justify-center  text-sm border h-[50px]', palyfair.className)}>
+      <div className={cn('bg-[#dddddd55] flex items-center justify-center  text-xs border h-[50px]', palyfair.className)}>
        <div className='gap-1 container mx-auto md:px-0 flex items-center px-[15px] justify-start'>
          <Link href={'#'}>Home</Link>
         <Icons.bannerRight className="w-3 h-3"/> 

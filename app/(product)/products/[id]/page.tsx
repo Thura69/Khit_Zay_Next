@@ -1,5 +1,6 @@
 import { Icons } from '@/components/icons'
 import { SiteBannerProductDetail } from '@/components/ui/Site-banner'
+import { Policy } from '@/components/ui/product/Policy'
 import { ProductSlide } from '@/components/ui/product/ProductSlide'
 import { RelatedProducts } from '@/components/ui/product/RelatedProducts'
 import React from 'react'
@@ -7,7 +8,7 @@ import React from 'react'
 function Page() {
   return (
     <div>
-    <div className='md:container w-full mt-2 flex-col flex  md:flex gap-[40px] items-start mx-auto'>
+    <div className='md:container  w-full mt-1 flex-col flex  md:flex gap-[40px] items-start mx-auto'>
         <div className='w-[100%] md:w-[50%]'>
           <ProductSlide />
         </div>
@@ -43,20 +44,21 @@ function Page() {
           </div>
           <div className='w-full gap-2 md:flex-row flex-col flex'>
             <div className=' flex w-[30%]'>
-                <button className='border  h-[40px] bg-gray-100 w-[40px] flex items-center justify-center'><Icons.minus className='w-4 h-4'/></button>
+                <button className='  h-[40px] bg-gray-100 w-[40px] flex items-center justify-center'><Icons.minus className='w-4 h-4'/></button>
                 <button className='border h-[40px] bg-white w-[45px] flex items-center justify-center'>1</button>
               
-                <button className='border h-[40px] bg-gray-100 w-[50px] flex items-center justify-center'><Icons.plus className='w-4 h-4'/></button>
+                <button className=' h-[40px] bg-gray-100 w-[50px] flex items-center justify-center'><Icons.plus className='w-4 h-4'/></button>
             </div>
             <button className='bg-black w-full h-[40px] flex items-center justify-center text-md text-center md:w-[80%]  text-white'>
               <p>ADD TO CART</p>
             </button>
           </div>
-          <div className='border text-[#FFFF] mt-2 text-sm bg-[#e95144] w-full text-center p-3'>
+          <div className='border text-[#FFFF] mt-1 text-sm bg-[#e95144] w-full text-center p-3'>
             <p>ORDER NOW WITH CUSTOMER SERVICES</p>
           </div>
         </div>
       </div>
+      <Policy/>
       <RelatedProducts/>
    </div>
   )

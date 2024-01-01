@@ -32,6 +32,7 @@ export const ProductSlide = () => {
             <Image src={ImgSLice} alt='dd' />
             <button className='absolute top-[50%] left-0 translate-y-[-60%]'><Icons.bannerLetf className='w-7 h-7' /></button>
             <button className='absolute top-[50%] right-0 translate-y-[-60%]'><Icons.bannerRight className='w-7 h-7' /></button>
+            <div className='bg-black rounded-md h-[50px] w-[50px] absolute bottom-3 right-3'>dd</div>
           </div>
         </div>
         <div className=' md:hidden  my-1 px-[20px]'>

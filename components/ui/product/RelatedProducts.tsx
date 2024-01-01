@@ -11,7 +11,7 @@ const palyfair = Playfair({ subsets: ['latin'] });
 
 export const RelatedProducts = () => {
   return (
-      <div className='md:container mt-[100px] mb-[50px] mx-auto'>
+      <div className='md:container  mb-[30px] mx-auto'>
           <p className={cn(palyfair.className,'text-center text-2xl mb-[40px]')}>RELATED PRODUCTS</p>
            <Swiper
             spaceBetween={20}
