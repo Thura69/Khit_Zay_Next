@@ -3,14 +3,14 @@ import { FilterPropertiesElement,FilterPropertiesElementType, FilterPropertiesIn
 import {ChevronDown,ChevronUp} from 'lucide-react'
 import { Checkbox, Radio, Switch } from 'pretty-checkbox-react';
 
-const type: FilterPropertiesElementType = 'Gender';
+const type: FilterPropertiesElementType = 'Category';
 
-export const GenderPropertiesElement:FilterPropertiesElement = {
+export const CategoryPropertiesElement:FilterPropertiesElement = {
   type,
   designerLiElement: {
     iconDown: ChevronDown,
     iconUp:ChevronUp,
-    title: "Gender",
+    title: "Category",
     delete:DeleteButton
   },
   propertiesComponent:PropertiesComponent
@@ -28,14 +28,14 @@ function DeleteButton  () {
 function PropertiesComponent({ listInstance }: { listInstance: FilterPropertiesInstance }) {
   const { title,count } = listInstance;
   return (
-    <div className='flex items-center gap-1 text-[#555555] text-sm'>
+    <div className='flex my-[0.5px] items-center gap-2 text-[#555555] text-sm'>
     <input type="checkbox" className="focus:outline-current focus:outline-offset-2 focus:outline-solid"/>
-      <label htmlFor="vehicle1"> {title}</label>
-      <p>({count})</p>
+      <label htmlFor="vehicle1" className='text-sm'> {title}</label>
+      <p className='text-xs'>({count})</p>
     </div>
   )
 }
 
-export default GenderPropertiesElement
+export default CategoryPropertiesElement
 
 
