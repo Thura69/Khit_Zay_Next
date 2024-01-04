@@ -24,35 +24,35 @@ interface BannerProductCardProps {
 
 
 
-export const SiteBanner = () => {
+export const SiteBanner = ({title = siteConfig.pageName}:{title:string}) => {
     return (
-        <div className={cn('bg-[#dddddd55] flex items-center justify-center text-lg border h-[60px]', palyfair.className)}>{siteConfig.pageName}</div>
+        <div className={cn('bg-[#dddddd55] flex items-center justify-center text-lg border h-[60px]', palyfair.className)}>{title}</div>
     )
 };
 
 export const SiteBannerProductDetail = () => {
     return (
-      <div className={cn('bg-[#dddddd55] flex items-center justify-center  text-xs border h-[50px]', palyfair.className)}>
-       <div className='gap-1 container mx-auto md:px-0 flex items-center px-[15px] justify-start'>
-         <Link href={'#'}>Home</Link>
-        <Icons.bannerRight className="w-3 h-3"/> 
-            <Link href={'#'}>Adidas</Link>
-        <Icons.bannerRight className="w-3 h-3"/>
-        <Link href={'#'}> adidas-ADILETTE AQUA-SLIDES-UNISEX</Link>
-       </div>
-      </div>
+        <div className={cn('bg-[#dddddd55] text-[#555555] flex items-center justify-center lg:text-sm  text-[10px] border h-[40px]')}>
+            <div className='gap-1 container mx-auto md:px-0 flex items-center px-[15px] justify-start'>
+                <Link href={'#'}>Home</Link>
+                <Icons.bannerRight className="w-3 h-3" />
+                <Link href={'#'}>Adidas</Link>
+                <Icons.bannerRight className="w-3 h-3" />
+                <Link href={'#'}> adidas-ADILETTE AQUA-SLIDES-UNISEX</Link>
+            </div>
+        </div>
     )
-}
+};
 
 export const BannerProductCard: FC<BannerProductCardProps> = ({ mainTitle, image, price, discount, subTitle }) => {
     
-    return <div className='text-xs  flex-col gap-1 flex text-center'>
+    return <div className='text-xs   max-w-[300px] flex-col gap-1 flex text-center'>
         <h3>ADIDAS MEN Run Tee T-Shirt</h3>
         <Image src={Shoe} alt='product' />
         <div className='flex justify-center gap-2'>
-        <p className=' line-through'>K89,100</p>
-        <p className=' text-red-500'>K89,100</p>
-       </div>
+            <p className=' line-through'>K89,100</p>
+            <p className=' text-red-500'>K89,100</p>
+        </div>
     </div>
-}
+};
 

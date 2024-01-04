@@ -4,6 +4,7 @@ import { Slider } from '@/components/ui/Slider'
 import { Playfair } from 'next/font/google'
 import { cn } from '@/utils/cn'
 import { SigupForNew } from '@/components/ui/SigupForNew'
+import { siteConfig } from '@/config/site'
 
 const palyfair = Playfair({ subsets: ['latin'] });
 
@@ -11,8 +12,8 @@ const palyfair = Playfair({ subsets: ['latin'] });
 export default function Home() {
   return (
     <div className=' lg:container px-[10px] pt-[10px] mx-auto'>
-      <SiteBanner/>
-      <Slider/>
+      <SiteBanner title={siteConfig.pageName} />
+      {/* <Slider/> */}
       <SiteKinds />
       <h3 className={cn(' uppercase text-center mt-[20px] text-xl', palyfair.className)}>Adidas</h3>
       <div className=' grid grid-cols-2 sm:grid-cols-3   md:grid-cols-3 lg:grid-cols-4 items-center justify-center mt-[20px] gap-3'>

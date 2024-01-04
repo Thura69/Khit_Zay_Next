@@ -6,6 +6,9 @@ import Logo from '@/public/khit_logo.webp';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
 import { MobileSlide } from './MobileSlide';
+import { CartProductCard } from './cart/CartProductCard';
+import { Cart } from './cart/Cart';
+import { Search } from './search/Search';
 
 
 const iconsSize = "w-4 h-4"
@@ -13,6 +16,7 @@ const iconsSize = "w-4 h-4"
 export const Header = () => {
   const [menuHeader, setMenuHeader] = useState<boolean>(false);
   const [count, setCount] = useState<boolean>(false);
+  const [search, setSearch] = useState<boolean>(false);
   
 
   
@@ -42,15 +46,23 @@ export const Header = () => {
         <li>ALL ITEMS</li>
       </ul>
       <div className='flex gap-3 '>
-          <Icons.search className='w-5 h-5' />
+          <button onClick={()=>setSearch((prev)=>!prev)}>
+             <Icons.search className='w-5 h-5' />
+         </button>
           <button onClick={()=>setCount((prev)=>!prev)} className='relative flex '>
             <Icons.bag className='w-5 h-5' />
             <span className=' translate-y-[-10px] bg-black text-white px-2 rounded-full top-[-95%] left-[8px] text-[8px] p-1 '>0</span>
-            <div className={cn(count ? 'max-h-[35px] py-2 opacity-1':'max-h-0 opacity-0',' overflow-hidden   transition-all duration-500 absolute border w-[250px] text-xs  top-[130%] bg-white  left-[-210px]')}>You don&#39;t have any items in your cart.</div>
+            <div className={cn(count ? 'max-h-[500px] h-auto py-2 opacity-1' : 'max-h-0 opacity-0', ' overflow-hidden   transition-all duration-500 absolute border w-[330px] text-xs  top-[140%] bg-white  left-[-300px]')}>
+              {/* <p> You don&#39;t have any items in your cart.</p> */}
+              <Cart/>
+            </div>
           </button>
       </div>
       </header>
       <MobileSlide menuHeader={menuHeader} setMenuHeader={setMenuHeader} />
+      {
+        search && <Search search={search} setSearch={setSearch} />
+      }
       </>
   )
 }

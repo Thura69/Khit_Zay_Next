@@ -18,6 +18,11 @@ import {
     Loader2,
     ChevronRight,
     ChevronLeft,
+    Expand,
+    Forward,
+    RefreshCcw,
+    X,
+    ChevronRightCircle,
     ChevronDown} from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -53,5 +58,10 @@ export const Icons = {
     close: XCircle,
     plus: Plus,
     minus: Minus,
-    loading:Loader2
+    expand:Expand,
+    loading: Loader2,
+    forward: Forward,
+    closeX: X,
+    arrowRight: ChevronRightCircle,
+    update:RefreshCcw
 };

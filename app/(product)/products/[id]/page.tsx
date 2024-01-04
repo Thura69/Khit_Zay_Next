@@ -7,8 +7,8 @@ import React from 'react'
 
 function Page() {
   return (
-    <div>
-    <div className='md:container  w-full mt-1 flex-col flex  md:flex gap-[40px] items-start mx-auto'>
+    <div className='md:container mx-auto mt-[10px]  '>
+    <div className='  w-full mt-1 flex-col flex  md:flex-row md:gap-[20px] gap-[40px] items-start '>
         <div className='w-[100%] md:w-[50%]'>
           <ProductSlide />
         </div>
