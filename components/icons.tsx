@@ -25,10 +25,39 @@ import {
     ChevronRightCircle,
     ChevronDown} from 'lucide-react'
 
-export type Icon = LucideIcon
+
+    interface LucideIconProps {
+    [key: string]: LucideProps | undefined;
+}
+
+interface IconsType {
+    phone: (props: LucideProps) => JSX.Element;
+    menu: LucideIcon;
+    user: LucideIcon;
+    search: LucideIcon;
+    bag: LucideIcon;
+    left: LucideIcon;
+    right: LucideIcon;
+    faceBook: LucideIcon;
+    instagram: LucideIcon;
+    down: LucideIcon;
+    up: LucideIcon;
+    bannerRight: LucideIcon;
+    bannerLetf: LucideIcon;
+    mail: LucideIcon;
+    close: LucideIcon;
+    plus: LucideIcon;
+    minus: LucideIcon;
+    expand: LucideIcon;
+    loading: LucideIcon;
+    forward: LucideIcon;
+    closeX: LucideIcon;
+    arrowRight: LucideIcon;
+    update: LucideIcon;
+}
 
 
-export const Icons = {
+export const Icons:IconsType = {
     phone: (props: LucideProps) => (
         <svg {...props}
             xmlns="http://www.w3.org/2000/svg"
