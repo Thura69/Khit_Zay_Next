@@ -1,19 +1,33 @@
 'use client'
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import FilterList from './FilterList'
 import PropertiesComponent from './FilterProperties/PropertiesComponent'
 import { Range,getTrackBackground } from 'react-range';
+import './FilterSide.css'
+import { useRef } from 'react';
+import Slider from 'react-slider'
+import { cn } from '@/utils/cn';
 
-const STEP = 0.1;
-const MIN = 0;
-const MAX = 50;
+  const MIN = 21700;
+  const MAX = 814500;
+  const MIN_P = 0;
+  const MAX_P = 30;
+  
+  interface FilterSideProps  {
+    menuHeader?: boolean,
+}
 
-export const FilterSide = () => {
+export const FilterSide:FC<FilterSideProps> = ({menuHeader}) => {
 
-    const [values, setValues] = React.useState([10,25 ]);
+    const [values, setValues] = React.useState([MIN, MAX]);
+    const [percent, setPercent] = React.useState([MIN_P, MAX_P]);
+
+  
+
+
     
   return (
-    <div className='bg-[#dddddd55]  p-1 w-[20%] '>
+    <div className={cn(menuHeader?'w-[70%] md:w-[40%]    fixed top-[50px] bottom-[50px] left-0 ':'hidden','lg:bg-[#dddddd55] bg-white lg:w-[250px]   shadow  lg:block md:px-3 overflow-scroll   ')}>
         <FilterList title='Gender'>
             <PropertiesComponent title='Men' count={20}/>
             <PropertiesComponent title='Women' count={20}/>
@@ -46,13 +60,51 @@ export const FilterSide = () => {
         </FilterList>
         <FilterList title='Price'>
          <div className='flex items-center text-xs text-[#555555] gap-2'>
-                  <input  className='w-[50%] outline-none px-2 border h-[35px]' />
+                  <input value={values[0]}  className='w-[50%] outline-none px-2 border h-[35px]' />
                   -
-                  <input  className='w-[50%] outline-none px-2 border h-[35px]'/>
+                  <input value={values[1]} className='w-[50%] outline-none px-2 border h-[35px]'/>
          </div>
-         <div className=' bg-gray-300 relative h-[5px]'>
-            <div className=' bg-gray-700 h-[5px] absolute left-[25%] right-[25%]'></div>
+              <Slider
+                  className='w-full h-[9px] mt-2 bg-gray-300'
+                  onChange={setValues}
+                  value={values}
+                  min={MIN}
+                  max={MAX} />
+              <div className='flex justify-between mt-[-3px]'>
+                  <div className='h-[8px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[8px] border-gray-300 w-[1px] border-[0.5px]'></div>
+              </div>
+              <div className='flex justify-between text-xs text-[#737373]'>
+                  <p>K{values[0]}</p>
+                  <p>K{values[1]}</p>
+              </div>
+          </FilterList>
+        <FilterList title='Percent Sale'>
+         <div className='flex items-center text-xs text-[#555555] gap-2'>
+                  <input value={percent[0]}  className='w-[50%] outline-none px-2 border h-[35px]' />
+                  -
+                  <input value={percent[1]} className='w-[50%] outline-none px-2 border h-[35px]'/>
          </div>
+              <Slider
+                  className='w-full h-[9px] mt-2 bg-gray-300'
+                  onChange={setPercent}
+                  value={percent}
+                  min={MIN_P}
+                  max={MAX_P} />
+              <div className='flex justify-between mt-[-3px]'>
+                  <div className='h-[8px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[5px] border-gray-300 w-[1px] border-[0.5px]'></div>
+                  <div className='h-[8px] border-gray-300 w-[1px] border-[0.5px]'></div>
+              </div>
+              <div className='flex justify-between text-xs text-[#737373]'>
+                  <p>{percent[0]}%</p>
+                  <p>{percent[1]}%</p>
+              </div>
           </FilterList>
 
 

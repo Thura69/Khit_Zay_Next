@@ -1,4 +1,4 @@
-
+'use client'
 import { siteConfig } from '@/config/site'
 import React, { FC, useState } from 'react'
 import { Playfair } from 'next/font/google'
@@ -7,6 +7,7 @@ import Image, { StaticImageData } from 'next/image';
 import Shoe from '@/public/F35543-1_420x.webp';
 import Link from 'next/link';
 import { Icons } from '../icons';
+import { useRouter } from 'next/navigation'
 
 
 
@@ -24,9 +25,9 @@ interface BannerProductCardProps {
 
 
 
-export const SiteBanner = ({title = siteConfig.pageName}:{title:string}) => {
+export const SiteBanner = ({ title = siteConfig.pageName }: { title: string }) => {
     return (
-        <div className={cn('bg-[#dddddd55] flex items-center justify-center text-lg border h-[60px]', palyfair.className)}>{title}</div>
+        <div className={cn('bg-[#dddddd55] flex items-center justify-center lg:text-2xl text-lg border h-[50px] lg:h-[70px]', palyfair.className)}>{title}</div>
     )
 };
 
@@ -45,8 +46,9 @@ export const SiteBannerProductDetail = () => {
 };
 
 export const BannerProductCard: FC<BannerProductCardProps> = ({ mainTitle, image, price, discount, subTitle }) => {
+    const route = useRouter();
     
-    return <div className='text-xs   max-w-[300px] flex-col gap-1 flex text-center'>
+    return <div onClick={()=>route.push('/products/1')} className='text-xs cursor-pointer   max-w-[300px] flex-col gap-2 flex text-center'>
         <h3>ADIDAS MEN Run Tee T-Shirt</h3>
         <Image src={Shoe} alt='product' />
         <div className='flex justify-center gap-2'>

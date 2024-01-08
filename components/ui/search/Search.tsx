@@ -56,10 +56,23 @@ export const Search:FC<SearchProps> = ({search,setSearch}) => {
                              <Swiper
             spaceBetween={10}
             direction='horizontal'
-            slidesPerView={4}
+            slidesPerView={1}
             className='my-1 w-[90svw] mx-auto m-0 p-0'
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
+            breakpoints={{
+    // when window width is >= 640px
+    640: {
+      width: 640,
+      slidesPerView: 2,
+    },
+    // when window width is >= 768px
+    768: {
+      width: 768,
+      slidesPerView: 3,
+    },
+  }}                
+                            
                             >
           <SwiperSlide>
           <SearchCard/>

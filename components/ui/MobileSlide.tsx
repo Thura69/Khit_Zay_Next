@@ -2,6 +2,8 @@ import React, { FC } from 'react'
 import { Icons } from '../icons'
 import { MobileSideSliderDrop } from './DropDown'
 import { cn } from '@/utils/cn';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 const listCln = 'h-[40px] flex text-sm justify-between items-center px-4 border-[0.5px]';
@@ -11,7 +13,9 @@ interface MenuSlideProps  {
     setMenuHeader:(newValue:boolean)=>void
 }
 
-export const MobileSlide:FC<MenuSlideProps> = ({menuHeader,setMenuHeader}) => {
+export const MobileSlide: FC<MenuSlideProps> = ({ menuHeader, setMenuHeader }) => {
+  const router = useRouter();
+    
   return (
       <>
        <div className={cn(menuHeader ? 'translate-x-0 opacity-1' : 'translate-x-[-100%] opacity-0','w-[100%] lg:hidden md:hidden transition-all duration-300 z-50  fixed top-0 bottom-0 left-0 ')}>
@@ -22,36 +26,35 @@ export const MobileSlide:FC<MenuSlideProps> = ({menuHeader,setMenuHeader}) => {
     </div>
         <div className='h-[50px] flex text-sm justify-between items-center px-3 border-[0.5px]'>
             <p>HOME</p>
-           
         </div>
         <MobileSideSliderDrop title='MEN'>
             <ul className='w-full bg-[#dddddd55] flex  text-sm flex-col'>
-                <li className={cn(listCln)}>APPAREL</li>
-                <li className={cn(listCln)}>FOOTWEAR</li>
-                <li className={cn(listCln)}>ACCESSORIES</li>
-                <li className={cn(listCln)}>BEAUTY & HEALTH</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>APPAREL</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>FOOTWEAR</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>ACCESSORIES</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>BEAUTY & HEALTH</li>
             </ul>
         </MobileSideSliderDrop>
         <MobileSideSliderDrop title='WOMEN'>
             <ul className='w-full bg-[#dddddd55] flex  text-sm flex-col'>
-                <li className={cn(listCln)}>APPAREL</li>
-                <li className={cn(listCln)}>FOOTWEAR</li>
-                <li className={cn(listCln)}>ACCESSORIES</li>
-                <li className={cn(listCln)}>BEAUTY & HEALTH</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>APPAREL</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>FOOTWEAR</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>ACCESSORIES</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>BEAUTY & HEALTH</li>
             </ul>
         </MobileSideSliderDrop>
          <MobileSideSliderDrop title='KIDS'>
             <ul className='w-full bg-[#dddddd55] flex  text-sm flex-col'>
-                <li className={cn(listCln)}>APPAREL</li>
-                <li className={cn(listCln)}>FOOTWEAR</li>
-                <li className={cn(listCln)}>TOY</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>APPAREL</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>FOOTWEAR</li>
+                <li onClick={()=>router.push('/products')} className={cn(listCln)}>TOY</li>
             </ul>
         </MobileSideSliderDrop>
         <div className='h-[50px] flex text-sm justify-between items-center px-3 border-[0.5px]'>
-            <p>OFFICAL BRANDS</p>
+            <Link href={"/products"}>OFFICAL BRANDS</Link>
         </div>
         <div className='h-[50px] text-sm flex justify-between items-center px-3 border-[0.5px]'>
-            <p>ALL ITEMS</p>
+            <Link href={"/products"}>ALL ITEMS</Link>
         </div>
     </div>   
           </div>

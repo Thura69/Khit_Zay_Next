@@ -22,6 +22,8 @@ import {
     Forward,
     RefreshCcw,
     X,
+    Eye,
+    ListFilter,
     ChevronRightCircle,
     ChevronDown} from 'lucide-react'
 
@@ -54,6 +56,8 @@ interface IconsType {
     closeX: LucideIcon;
     arrowRight: LucideIcon;
     update: LucideIcon;
+    eye: LucideIcon,
+    filter:LucideIcon
 }
 
 
@@ -92,5 +96,7 @@ export const Icons:IconsType = {
     forward: Forward,
     closeX: X,
     arrowRight: ChevronRightCircle,
-    update:RefreshCcw
+    update: RefreshCcw,
+    eye: Eye,
+    filter:ListFilter
 };

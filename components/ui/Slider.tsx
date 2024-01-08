@@ -10,10 +10,11 @@ import { cva, VariantProps } from 'class-variance-authority'
 
 const images = SliderImages.adidas;
 const deskImages = SliderImages.adidas_md;
+
 const iconSize = 'w-4 h-4';
 const slideIcon = 'absolute top-[50%] p-3 translate-y-[-50%] bg-[#e9e7e715] opacity-[0.8] border-black   bg-white';
 const slideVariants = cva(
- 'h-[250px] overflow-hidden relative ',
+ ' overflow-hidden relative ',
     {
       variants: {
         variant: {
@@ -45,7 +46,8 @@ const arrowVariants = cva(
 
   interface SlideProps extends VariantProps<typeof slideVariants>,VariantProps<typeof arrowVariants> {
     img?: StaticImageData[],
-    setDigit:(e:number)=>void
+    isDesk? : boolean,
+    setDigit?:(e:number)=>void
 }
 
 
@@ -54,7 +56,7 @@ const arrowVariants = cva(
 
 
 export const Slider: FC<SlideProps> = (
-  {variant,arrow,img,setDigit,...props}
+  {variant,arrow,img,isDesk,setDigit,...props}
 ) => {
     const [slideImages, setSlideImages] = useState(images);
     const [slideDesk, setSlideDesk] = useState(deskImages);
@@ -101,7 +103,9 @@ export const Slider: FC<SlideProps> = (
     }
   }, 5000);
     
-      setDigit(count)
+    if (setDigit) {
+        setDigit(count)
+    }
 
   return () => {
     clearInterval(intervalId);
@@ -110,7 +114,18 @@ export const Slider: FC<SlideProps> = (
 
   return (
       <>
-        <div className={' h-[90%]  overflow-hidden relative block'}>
+      {
+        isDesk?<div className={cn(slideVariants({variant}))}>
+        <Link href={'#'}>
+            <Image src={deskImages[count]} alt='3'/>
+        </Link>
+        <div onClick={()=>handleSlice('i')} className={cn(slideIcon,'right-1 cursor-pointer ')}>
+              <Icons.right className={iconSize} />
+        </div>
+        <div onClick={()=>handleSlice('d')} className={cn(slideIcon,'left-1 cursor-pointer   ')}>
+              <Icons.left className={iconSize} />
+        </div>
+    </div>:    <div className={' h-[90%]    overflow-hidden relative block'}>
         <Link href={'#'}>
             <Image src={img![count]} alt='3'/>
         </Link>
@@ -121,17 +136,8 @@ export const Slider: FC<SlideProps> = (
               <Icons.left className={iconSize} />
         </div>
     </div>
-    <div className={cn(slideVariants({variant}))}>
-        <Link href={'#'}>
-            <Image src={deskImages[count]} alt='3'/>
-        </Link>
-        <div onClick={()=>handleSlice('i')} className={cn(slideIcon,'right-1 cursor-pointer ')}>
-              <Icons.right className={iconSize} />
-        </div>
-        <div onClick={()=>handleSlice('d')} className={cn(slideIcon,'left-1 cursor-pointer   ')}>
-              <Icons.left className={iconSize} />
-        </div>
-    </div>
+    }
+
       </>
   )
 }

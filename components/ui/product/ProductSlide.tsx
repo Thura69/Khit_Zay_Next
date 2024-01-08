@@ -18,7 +18,6 @@ const imageSize = 'w-auto  md:w-[150px]'
 export const ProductSlide = () => {
   const [start, setStart] = useState(false);
   const [expand, setExpand] = useState(false);
- const imgRef = useRef<any>(null);
 
   const [slideImages, setSlideImages] = useState([ImgSLice, ImgSLice_two, ImgSLice_three, ImgSLice_four]);
   const [count, setCount] = useState(0);

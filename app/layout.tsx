@@ -34,7 +34,7 @@ export default function RootLayout({
         {children}
       <SigupForNew/>
       <Footer/>
-        <Link href="#" className=' fixed bottom-1 left-1'>
+        <Link href="feedback" className=' fixed bottom-1 left-1'>
           <Image className='w-[100px] h-[40px]' src={FeedBack} alt='feed-back' />
         </Link>
         <UpTop/>

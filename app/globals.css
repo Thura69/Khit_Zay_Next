@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .fade-enter {
     opacity: 0;
 }
@@ -20,7 +22,34 @@
     transition: opacity 1000ms ease-in-out;
 }
 
-input[type="checkbox"]:focus {
-    outline: max(2px, 0.15em) solid currentColor;
-    outline-offset: max(2px, 0.15em);
+input[type="range"]::-webkit-slider-thumb {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background-color: none;
+}
+input[type="range"]::-moz-range-thumb {
+    height: 10px;
+    width: 10px;
+    border:none;
+    border-radius: 50%;
+    pointer-events: auto;
+    -moz-appearance: none;
+    background-color: rgb(93, 93, 93);
+}
+
+.thumb{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    top:-5px;
+    border:2px solid white;
+    background-color: rgb(66, 66, 66);
+}
+
+.track {
+    background-color: red;
 }
